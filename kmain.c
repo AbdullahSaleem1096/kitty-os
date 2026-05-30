@@ -1,12 +1,9 @@
+#include "framebuffer.h"
+
 void kmain(void)
 {
-    char *video_memory = (char *) 0xb8000;
-
-    video_memory[0] = 'A';
-    video_memory[1] = 0x07;
-
-    video_memory[2] = 'B';
-    video_memory[3] = 0x07;
+    fb_write_cell(FB_CELL(0, 0), 'A', FB_GREEN, FB_DARK_GREY);
+    fb_write_cell(FB_CELL(0, 1), 'B', FB_GREEN, FB_DARK_GREY);
 
     while (1)
     {
