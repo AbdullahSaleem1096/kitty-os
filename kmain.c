@@ -2,8 +2,8 @@
 
 void kmain(void)
 {
-    fb_write_cell(FB_CELL(0, 0), 'A', FB_GREEN, FB_DARK_GREY);
-    fb_write_cell(FB_CELL(0, 1), 'B', FB_GREEN, FB_DARK_GREY);
+    write("Hello from kitty-os!\n", 22);
+    write("Cursor moves and scrolls.\n", 27);
 
     while (1)
     {
