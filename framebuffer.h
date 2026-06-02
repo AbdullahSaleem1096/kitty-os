@@ -28,7 +28,7 @@ void fb_move_cursor(unsigned short pos);
 
 void fb_write_cell(unsigned int i, char c, unsigned char fg, unsigned char bg);
 
-/** write:
+/** fb_write:
  *  Writes the contents of buf to the screen, advancing the cursor and
  *  scrolling when the bottom row is full.
  *
@@ -36,6 +36,6 @@ void fb_write_cell(unsigned int i, char c, unsigned char fg, unsigned char bg);
  *  @param len Number of bytes to write
  *  @return Number of bytes written
  */
-int write(char *buf, unsigned int len);
+int fb_write(char *buf, unsigned int len);
 
 #endif

@@ -1,4 +1,4 @@
-OBJECTS = loader.o kmain.o io.o framebuffer.o
+OBJECTS = loader.o kmain.o io.o framebuffer.o serial.o log.o
 
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
@@ -37,4 +37,4 @@ run: os.iso
 	$(AS) $(ASFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o kernel.elf os.iso
+	rm -rf *.o kernel.elf os.iso com1.out

@@ -138,7 +138,7 @@ static void fb_put_char(char c)
     fb_move_cursor(cursor_pos);
 }
 
-/** write:
+/** fb_write:
  *  Writes a buffer of characters to the framebuffer.
  *
  *  Each character is processed individually through fb_put_char(),
@@ -150,7 +150,7 @@ static void fb_put_char(char c)
  *  @return The number of characters written.
  */
 
-int write(char *buf, unsigned int len)
+int fb_write(char *buf, unsigned int len)
 {
     unsigned int i;
 
