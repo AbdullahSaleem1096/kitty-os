@@ -1,9 +1,12 @@
 #include "framebuffer.h"
+#include "gdt.h"
 #include "log.h"
 #include "serial.h"
 
 void kmain(void)
 {
+    gdt_init();
+
     serial_init(SERIAL_COM1_BASE);
 
     fb_write("Hello from kitty-os!\n", 22);
