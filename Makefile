@@ -15,7 +15,12 @@ all: kernel.elf
 kernel.elf: $(OBJECTS)
 	ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
 
-os.iso: kernel.elf
+program: program.s
+	$(AS) -f bin program.s -o program
+
+os.iso: kernel.elf program
+	mkdir -p iso/modules
+	cp program iso/modules/program
 	cp kernel.elf iso/boot/kernel.elf
 	genisoimage -R \
 	            -b boot/grub/stage2_eltorito \
@@ -38,4 +43,4 @@ run: os.iso
 	$(AS) $(ASFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o kernel.elf os.iso com1.out
+	rm -rf *.o kernel.elf os.iso com1.out program iso/modules/program
